@@ -8,10 +8,10 @@ public class NinjaFrog
     [SetUp]
     public void SetUp()
     {
-        stats = new NinjaFrogStats(); 
+        stats = new NinjaFrogStats();
     }
 
-    [Test] 
+    [Test]
     public void DefaultLives_ShouldBeThree()
     {
         Assert.AreEqual(3, stats.maxLives, "The default lives should be " + 3 + " but was " + stats.maxLives);
@@ -27,5 +27,15 @@ public class NinjaFrog
     {
         bool actual = stats.CanAttack(attackPower, attackRange);
         Assert.AreEqual(expected, actual, "The expected value should be " + expected + " but was " + actual);
+    }
+    
+    [Test]
+    public void CanMove_VariousCases()
+    {
+        bool actual = stats.canMove(0);
+        Assert.AreEqual(false, actual, "The expected value should be false but was " + actual);
+
+        actual = stats.canMove(1);
+        Assert.AreEqual(true, actual, "The expected value should be true but was " + actual);
     }
 }
