@@ -18,12 +18,20 @@ public class NinjaFrogMovementTest
     }
     [UnityTest]
     public IEnumerator NinjaFrogFall()
-    {   
+    {
         yield return new WaitForSeconds(2);
         NinjaFrog = GameObject.Find("NinjaFrog");
         Ground = GameObject.Find("Ground");
         Assert.That(NinjaFrog.transform.position.y > Ground.transform.position.y);
-       
+
+    }
+
+    [UnityTest]
+    public IEnumerator NinjaFrogMove()
+    {
+        yield return new WaitForSeconds(2);
+        NinjaFrog = GameObject.Find("NinjaFrog");
+        Assert.That(NinjaFrog.GetComponent<Rigidbody2D>().linearVelocity.y > 0);
     }
 
 
@@ -32,4 +40,6 @@ public class NinjaFrogMovementTest
     {
         EditorSceneManager.UnloadSceneAsync("SampleScene");
     }
+    
+
 }
